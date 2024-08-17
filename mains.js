@@ -1,5 +1,14 @@
+
+
+let si = "si"
+let no = "no"
 function saludar() {
+
     console.log(prompt("Hola te gustaria conocer los meses del año? si/no"))
+} if (si == "si") {
+    alert("Bienvenido/a")
+} else (no == "no"); {
+    alert("Muchas gracias")
 }
 
 saludar()
@@ -54,4 +63,4 @@ if (confirmacion == "no") {
 } else (confirmacion == "si"); {
     mes
 }
- confirmacion()
+confirmacion()
