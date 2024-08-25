@@ -1,176 +1,199 @@
+alert("Bienvenido a mi Ecommerse, Aca vendemos productos de entrenamiento")
 
-alert("Hola Mi nombre es Nicolas Aballay, " + " Bienvenido!!!")
-
-let si = "si"
-let no = "no"
-function saludar() {
-
-  let MesesDelAño = prompt ("Hola te gustaria conocer los meses del año? si/no").toLowerCase()
- console.log (MesesDelAño)
+// Objetos: Los productos del Ecommerse
+const barra1 = {
+  id: 1,
+  pesos: "15kg",
+  precio: 150.000,
+  medidas: "1.80 metros",
+  marca: "sonnos",
 }
-if (si == "si") {
+const barra2 = {
+  id: 2,
+  pesos: "20kg",
+  precio: 180.000,
+  medidas: "2.20 metros",
+  marca: "sonnos"
+}
+const remeras1 = {
+  id: 1,
+  color: "negro",
+  precio: 20.000,
+  medidas: "M",
+  marca: "Adidas"
+}
+const remeras2 = {
+  id: 2,
+  color: "blanco",
+  precio: 20.000,
+  medidas: "M",
+  marca: "Adidas"
+}
+const remeras3 = {
+  id: 3,
+  color: "amarillo",
+  precio: 20.000,
+  medidas: "M",
+  marca: "Adidas"
+}
+const cinturonLumbar1 = {
+  id: 1,
+  precio: 15.000,
+  color: "Negro",
+  marca: "GoodGrip",
+  medidas: "M"
+}
+const cinturonLumbar2 = {
+  id: 2,
+  precio: 20.000,
+  color: "Celeste",
+  marca: "Sonnos",
+  medidas: "M"
+}
+const cinturonLumbar3 = {
+  id: 3,
+  precio: 25.000,
+  color: "Negro",
+  marca: "Adidas",
+  medidas: "M"
+}
+const calleras1 = {
+  id: 1,
+  precio: 8.000,
+  marca: "GoodGrip",
+  medidas: "M"
+}
+const calleras2 = {
+  id: 2,
+  precio: 10.000,
+  marca: "Adidas",
+  medidas: "M"
+}
+const colchonetas1 = {
+  id: 1,
+  precio: 40.000,
+  color: "Azul",
+  marca: "Sonnos"
+}
+const discosEleico1 = {
+  id: 1,
+  precio: 20.000,
+  nombre: 'eleico',
+  medidas: "2.5KG"
+}
+const discosEleico2 = {
+  id: 2,
+  precio: 25.000,
+  nombre: 'eleico',
+  medidas: "5KG"
+}
+const discosEleico3 = {
+  id: 3,
+  precio: 30.000,
+  nombre: 'eleico',
+  medidas: "10KG"
+}
 
-} else if (no== "no") {
+//Arrays
+let barras = [barra1,barra2]
+const remeras = [remeras1,remeras2,remeras3]
+const cinturonLumbar = [cinturonLumbar1,cinturonLumbar2,cinturonLumbar3]
+const calleras = [calleras1,calleras2]
+const colchonetas = [colchonetas1]
+const discos = [discosEleico1,discosEleico2,discosEleico3]
+
+//Carrito
+const carrito = []
+
+// Esta funcion sirver para agregar los productos al carrito
+const agregarAlCarrito = (array,id) => {
+  carrito.push(array.find(prod => prod.id === id))
+}
+
+
+let continuar = true
+while (continuar) {
+  let menu = parseInt(prompt("Ingrese 1 para ver las Barras, 2 para ver las remeras, 3 para ver los cinturones lumbares, 4 para ver las calleras, 5 para ver las colchonetas , 6 para ver los discos, 7 ver carrito, 8 salir"))
+  switch (menu) {
+    case 1:  
+
+      let mensaje = "Estos son los pesos de las barras que tenemos "      
+      barras.forEach((barra) => { mensaje += `Barras de ${barra.pesos} ` })
+      let respuestaBarras = parseInt(prompt(mensaje + 'Elije el producto que quieres comprar: 1,2'))
+      
+      agregarAlCarrito(barras,respuestaBarras)
+      console.log (barras)
+      break
+
+    case 2:
+
+    let mensajeRemeras = "Estas son las remeras que tenemos en stock "      
+    remeras.forEach((remeras) => { mensajeRemeras += `Remera de ${remeras.color} ` })
+    let respuestaRemeras = parseInt(prompt(mensajeRemeras + 'Elije el producto que quieres comprar: 1,2,3'))
     
-    alert("Muchas gracias")
-}
+    agregarAlCarrito(remeras,respuestaRemeras)
+    console.log (remeras)
+    break
+
+    case 3:
+        let mensajeCinturonLumbar = "Estos son los cinturones que tenemos en stock: "      
+        cinturonLumbar.forEach((cinturonLumbar) => { mensajeCinturonLumbar += ` Cinturon lumbar de ${cinturonLumbar.marca} ` })
+        let respuesastaCinturonLumbar = parseInt(prompt(mensajeCinturonLumbar + 'Elije el producto que quieres comprar: 1,2,3'))
+        
+        agregarAlCarrito(cinturonLumbar,respuesastaCinturonLumbar)
+        console.log (cinturonLumbar)
+
+      break
+
+    case 4:
+        let mensajeCalleras = "Estas son las calleras que tenemos en stock "      
+        calleras.forEach((calleras) => { mensajeCalleras += `calleras de ${calleras.marca} ` })
+        let respuestaCalleras = parseInt(prompt(mensajeCalleras + 'Elije el producto que quieres comprar: 1,2'))
+        
+        agregarAlCarrito(calleras,respuestaCalleras)
+        console.log (calleras)
+      break
+    case 5:
+        let mensajeColchonetas = "Esta es la colchoneta que tenemos en stock "      
+        colchonetas.forEach((colchoneta) => { mensajeColchonetas += `Colchoneta de ${colchoneta.color} ` })
+        let respuestaColchoneta = parseInt(prompt(mensajeColchonetas + 'Elije el producto que quieres comprar: 1'))
+        
+        agregarAlCarrito(colchonetas,respuestaColchoneta)
+        console.log (colchonetas)
+
+      break
+    case 6:
+        let mensajeDiscos = "Estas son los discos que tenemos en stock "      
+        discos.forEach((discos) => { mensajeDiscos += `discos de ${discos.medidas} ` })
+        let respuestaDiscos = parseInt(prompt(mensajeDiscos + 'Elije el producto que quieres comprar: 1,2,3'))
+        
+        agregarAlCarrito(discos,respuestaDiscos)
+        console.log (discos)
+      break
+    case 7:
+       
+      console.log("Tu carrito contiene: ")
+      console.log(carrito);
+      let mensajecarrito = "El total del carrito es: "
+
+      //Esto sirve para calcular el total del carrito
+      let total = carrito.reduce((acc,prod) => acc + prod.precio,0) 
+      console.log(mensajecarrito += '$' + total)
+      break
+
+    case 8:
+      continuar = false
+      alert("Gracias por comprar con nosotros!")
+      break
+
+    default:
+
+      continuar = false
+      alert("opcion incorrecta")
+      break
 
 
-saludar()
+  }
 
-
-let confirmarDeIngreso = true
-while (confirmarDeIngreso) {
-    let mes = parseInt(prompt("Ingrese del 1 al 12 para saber la estacion del año"))
-    switch (mes) {
-        case 12:
-            console.log("Diciembre tiene 31 dias y el 21 de Diciembre comienza el verano")
-
-            let confirmacion12 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion12 == "si") {
-                console.log("El 25 de diciembre se celebra Navidad")
-
-            } else if (confirmacion12 == "no") {
-                confirmacion12 = false
-                alert("Gracias!")
-            }
-            break;
-        case 1:
-            console.log("Enero tiene 31 dias y es verano")
-
-            let confirmacion1 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion1 == "si") {
-                console.log("El 1 (uno) se celebra año nuevo ")
-
-            } else if (confirmar == "no") {
-                confirmacion1 = false
-                alert("Gracias!")
-            }
-            break;
-        case 2:
-            console.log("Febrero tiene 28 dias y es verano")
-
-            let confirmacion2 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion2 == "si") {
-                console.log("El 12 y 13 de Febrero en Argentina se celebra Carnaval ")
-
-            } else if (confirmacion2 == "no") {
-                confirmacion2 = false
-                alert("Gracias!")
-            }
-            break;
-        case 3:
-            console.log("Marzo tiene 31 dias y el 21 de Marzo comienza el otoño")
-
-            let confirmacion3 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion3 == "si") {
-                console.log("El 24 de Marzo se celebra el dia Nacional de la memoria por la Verdad y la Justicia ")
-
-            } else if (confirmacion3 == "no") {
-                confirmacion3 = false
-                alert("Gracias!")
-            }
-            break;
-        case 4:
-            console.log("Abril tiene 30 dias y es otoño")
-            let confirmacion4 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion4 == "si") {
-                console.log("El 2 de Abril se conmemora el dia del Veterano y los Caidos en la Guerra de Malvinas")
-
-            } else if (confirmacion4 == "no") {
-                confirmacion4 = false
-                alert("Gracias!")
-            }
-            break;
-        case 5:
-            console.log("Mayo tiene 31 dias y es otoño")
-            let confirmacion5 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion5 == "si") {
-                console.log("El 1 de mayo es el dia del Trabajo " + " El 25 de Mayo es el dia de la Revolucion de Mayo")
-
-            } else if (confirmacion5 == "no") {
-                confirmacion5 = false
-                alert("Gracias!")
-            }
-            break;
-        case 6:
-            console.log("Junio tiene 30 dias y el 21 de Junio comienza el invierno")
-            let confirmacion6 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion6 == "si") {
-                console.log("El 17 de Junio se conmemora el paso a la inmortalidad del General Don Martin de Guemes " + " El 20 se conmemora el Paso a la inmortalidad del General Manuel Belgrano")
-
-            } else if (confirmacion6 == "no") {
-                confirmacion6 = false
-                alert("Gracias!")
-            }
-            break;
-        case 7:
-            console.log("Julio tiene 31 dias y es invierno")
-            let confirmacion7 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion7 == "si") {
-                console.log("El 9 de Julio se conmemora el Dia de la Independecia en Argentina")
-
-            } else if (confirmacion7 == "no") {
-                confirmacion7 = false
-                alert("Gracias!")
-            }
-            break;
-        case 8:
-            console.log("Agosto tiene 31 dias y es invierno")
-            let confirmacion8 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion8 == "si") {
-                console.log("El 17 se conmemora el paso a la inmortalidad del General Don Jose de San Martin ")
-
-            } else if (confirmacion8 == "no") {
-                confirmacion8 = false
-                alert("Gracias!")
-            }
-            break;
-        case 9:
-            console.log("Septiembre tiene 30 dias y el 21 de Septiembre es el comienzo de la primavera")
-            let confirmacion9 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion9 == "si") {
-                console.log("No tiene ningun dia conmemorativo ni feriados")
-
-            } else if (confirmacion9 == "no") {
-                confirmacion9 = false
-                alert("Gracias!")
-            }
-            break;
-        case 10:
-            console.log("Octubre tiene 31 dias y es primavera")
-            let confirmacion10 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion10 == "si") {
-                console.log("El 11 de Octubre es el dia del perdon " + " El 12 de Octubre es el dia de Diversidad Cultural")
-
-
-            } else if (confirmacion10 == "no") {
-                confirmacion10 = false
-                alert("Gracias!")
-            }
-            break;
-        case 11:
-            console.log("Noviembre tiene 30 dias y es Primavera")
-            let confirmacion11 = prompt("Te gustaria saber mas de este mes? (si/no)").toLowerCase()
-            if (confirmacion11 == "si") {
-                console.log("El 20 de Noviembre es el dia de Soberania Nacional")
-
-            } else if (confirmacion11 == "no") {
-                confirmacion11 = false
-                alert("Gracias!")
-            }
-            break;
-        default:
-            alert("Ese mes no existe")
-            break
-    }
-
-    const continuar = prompt("Desea conocer otra estacion del año? si/no").toLowerCase()
-    if (continuar == "si") {
-
-
-    } else if (continuar == "no") {
-        confirmarDeIngreso = false
-        alert("Muchas Gracias!!")
-    }
+ 
 }
