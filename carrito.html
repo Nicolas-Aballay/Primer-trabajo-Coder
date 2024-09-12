@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vineria</title>
+
+    <!-- Js -->
+    <script defer src="mains.js"></script>
+    <script defer src="carrito.js"></script>
+
+    <!-- Css -->
+    <link link rel="stylesheet" href="style.css" link>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <h1>Vineria Nicolas</h1>
+            <img src="" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="carrito" aria-current="page" href="index.html">Productos</a>
+                    </li>
+
+            </div>
+        </div>
+
+        <div class="totales-carrito">
+            <div class="unidades">
+                <div class="unidades-productos">
+                    <label for="">Productos:</label>
+                    <span class="productos">0</span>
+                </div>
+                <div class="unidades-items">
+                    <label for="">Items:</label>
+                    <span class="items">0</span>
+                </div>
+
+            </div>
+            <div class="importe-total">
+                <label for="">Total Compra</label>
+                <span class="importe">$0.00</span>
+            </div>
+        </div>
+
+
+        <div class="modal-subtotal-carrito">
+            <span class="modal-subtotal-carrito-1">Total Productos:</span>
+            <span class="modal-subtotal-carrito-2"></span>
+            <span class="modal-subtotal-carrito-3"></span>
+        </div>
+    </nav>
+    <h2>Estos son los productos que has seleccionado</h2>
+    <section id="cart-section"></section>
